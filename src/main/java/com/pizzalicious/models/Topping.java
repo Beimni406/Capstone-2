@@ -45,4 +45,12 @@ public abstract class Topping {
         }
         return price;
     }
+
+    // Display topping details
+    @Override
+    public String toString() {
+        String type = isPremium ? "Premium" : "Regular";
+        String extraText = isExtra ? " (Extra)" : "";
+        return name + " - " + type + extraText;
+    }
 }
