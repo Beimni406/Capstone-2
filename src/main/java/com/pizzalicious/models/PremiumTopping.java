@@ -8,8 +8,11 @@ public class PremiumTopping extends Topping {
         super(name, true, isExtra);
     }
 
-    // Describes what kind of topping this is
     public String getTypeDescription() {
         return "Premium topping: " + name;
+    }
+
+    public void displayInfo() {
+        System.out.println("Added " + getTypeDescription() + (isExtra ? " (extra portion)" : ""));
     }
 }
