@@ -27,4 +27,19 @@ public abstract class Pizza {
     public boolean isStuffedCrust() {
         return stuffedCrust;
     }
+
+    // --- Commit #3 ---
+    public double calculatePrice() {
+        double basePrice = switch (size) {
+            case 8 -> 8.50;
+            case 12 -> 12.00;
+            case 16 -> 16.50;
+            default -> 0;
+        };
+
+        // Add $2 if stuffed crust
+        if (stuffedCrust) basePrice += 2.00;
+
+        return basePrice;
+    }
 }
