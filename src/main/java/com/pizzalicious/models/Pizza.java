@@ -39,7 +39,15 @@ public abstract class Pizza {
 
         // Add $2 if stuffed crust
         if (stuffedCrust) basePrice += 2.00;
-
         return basePrice;
+    }
+
+    // --- Commit #4 ---
+    @Override
+    public String toString() {
+        return size + " inch " + crust + " crust pizza"
+                + (stuffedCrust ? " (stuffed crust)" : "")
+                + " with toppings: " + toppings
+                + "\nPrice: $" + String.format("%.2f", calculatePrice());
     }
 }
