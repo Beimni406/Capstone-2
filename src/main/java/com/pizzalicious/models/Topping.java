@@ -24,4 +24,25 @@ public abstract class Topping {
     public boolean isExtra() {
         return isExtra;
     }
+
+    // Calculates topping price based on size, premium, and extra
+    public double getPrice(int size) {
+        double price = 0.0;
+
+        if (isPremium) {
+            switch (size) {
+                case 8 -> price = 1.00;
+                case 12 -> price = 2.00;
+                case 16 -> price = 3.00;
+            }
+            if (isExtra) {
+                switch (size) {
+                    case 8 -> price += 0.50;
+                    case 12 -> price += 1.00;
+                    case 16 -> price += 1.50;
+                }
+            }
+        }
+        return price;
+    }
 }
