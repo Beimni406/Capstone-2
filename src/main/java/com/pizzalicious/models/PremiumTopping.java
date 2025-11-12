@@ -7,4 +7,9 @@ public class PremiumTopping extends Topping {
         // premium toppings cost extra, so isPremium = true
         super(name, true, isExtra);
     }
+
+    // Describes what kind of topping this is
+    public String getTypeDescription() {
+        return "Premium topping: " + name;
+    }
 }
