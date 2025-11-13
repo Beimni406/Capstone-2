@@ -1,0 +1,22 @@
+package com.pizzalicious.models;
+
+// Represents a drink item that can be added to an order
+public class Drink {
+    private String size;     // Small, Medium, or Large
+    private String flavor;   // Example: Coke, Sprite, Lemonade
+
+    // Constructor
+    public Drink(String size, String flavor) {
+        this.size = size;
+        this.flavor = flavor;
+    }
+
+    // Getter methods
+    public String getSize() {
+        return size;
+    }
+
+    public String getFlavor() {
+        return flavor;
+    }
+}
