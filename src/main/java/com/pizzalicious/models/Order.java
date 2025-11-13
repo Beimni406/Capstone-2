@@ -26,7 +26,6 @@ public class Order {
         garlicKnots.add(knot);
     }
 
-    // Calculates total price of the full order
     public double calculateTotal() {
         double total = 0.0;
 
@@ -43,5 +42,41 @@ public class Order {
         }
 
         return total;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n----- Order Details -----\n");
+
+        if (pizzas.isEmpty() && drinks.isEmpty() && garlicKnots.isEmpty()) {
+            sb.append("No items in the order.\n");
+        } else {
+            if (!pizzas.isEmpty()) {
+                sb.append("\nPizzas:\n");
+                for (Pizza p : pizzas) {
+                    sb.append(" - ").append(p.toString()).append("\n");
+                }
+            }
+
+            if (!drinks.isEmpty()) {
+                sb.append("\nDrinks:\n");
+                for (Drink d : drinks) {
+                    sb.append(" - ").append(d.toString()).append("\n");
+                }
+            }
+
+            if (!garlicKnots.isEmpty()) {
+                sb.append("\nGarlic Knots:\n");
+                for (GarlicKnot g : garlicKnots) {
+                    sb.append(" - ").append(g.toString()).append("\n");
+                }
+            }
+        }
+
+        sb.append("\nTotal: $").append(String.format("%.2f", calculateTotal())).append("\n");
+        sb.append("--------------------------\n");
+
+        return sb.toString();
     }
 }
