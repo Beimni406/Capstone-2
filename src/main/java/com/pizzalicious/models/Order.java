@@ -13,4 +13,19 @@ public class Order {
         drinks = new ArrayList<>();
         garlicKnots = new ArrayList<>();
     }
+
+    // Adds a pizza to the order
+    public void addPizza(Pizza pizza) {
+        pizzas.add(pizza);
+    }
+
+    // Adds a drink to the order
+    public void addDrink(Drink drink) {
+        drinks.add(drink);
+    }
+
+    // Adds garlic knots to the order
+    public void addGarlicKnot(GarlicKnot knot) {
+        garlicKnots.add(knot);
+    }
 }
