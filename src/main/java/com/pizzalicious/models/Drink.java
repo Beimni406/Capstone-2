@@ -29,4 +29,10 @@ public class Drink {
             default -> 0.0;
         };
     }
+
+    // Displays drink info
+    @Override
+    public String toString() {
+        return size + " " + flavor + " - $" + String.format("%.2f", getPrice());
+    }
 }
