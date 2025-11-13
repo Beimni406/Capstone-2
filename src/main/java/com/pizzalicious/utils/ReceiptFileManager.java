@@ -3,21 +3,23 @@ package com.pizzalicious.utils;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import com.pizzalicious.models.Order;
 
 // Manages saving order receipts to a text file
 public class ReceiptFileManager {
 
-    // Saves an order receipt into a uniquely named text file
+    // Saves an order receipt into a uniquely named text file with timestamp
     public static void saveReceipt(Order order) {
-        int fileNumber = 1;
-        File file;
+        // Get current date and time
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm");
+        String timestamp = now.format(formatter);
 
-        // Keep incrementing the file name until one is free
-        do {
-            file = new File("receipt_" + fileNumber + ".txt");
-            fileNumber++;
-        } while (file.exists());
+        // Build file name using timestamp
+        String fileName = "receipt_" + timestamp + ".txt";
+        File file = new File(fileName);
 
         try (FileWriter writer = new FileWriter(file)) {
             writer.write(order.toString());
