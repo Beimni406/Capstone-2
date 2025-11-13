@@ -14,18 +14,34 @@ public class Order {
         garlicKnots = new ArrayList<>();
     }
 
-    // Adds a pizza to the order
     public void addPizza(Pizza pizza) {
         pizzas.add(pizza);
     }
 
-    // Adds a drink to the order
     public void addDrink(Drink drink) {
         drinks.add(drink);
     }
 
-    // Adds garlic knots to the order
     public void addGarlicKnot(GarlicKnot knot) {
         garlicKnots.add(knot);
+    }
+
+    // Calculates total price of the full order
+    public double calculateTotal() {
+        double total = 0.0;
+
+        for (Pizza pizza : pizzas) {
+            total += pizza.calculatePrice();
+        }
+
+        for (Drink drink : drinks) {
+            total += drink.getPrice();
+        }
+
+        for (GarlicKnot knot : garlicKnots) {
+            total += knot.getPrice();
+        }
+
+        return total;
     }
 }
