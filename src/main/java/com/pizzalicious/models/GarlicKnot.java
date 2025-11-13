@@ -13,4 +13,16 @@ public class GarlicKnot {
     public int getQuantity() {
         return quantity;
     }
+
+    // Calculates total price for the garlic knots
+    public double getPrice() {
+        double pricePerOrder = 1.50;  // fixed price per order
+        return quantity * pricePerOrder;
+    }
+
+    // Displays garlic knot order info
+    @Override
+    public String toString() {
+        return quantity + " order(s) of Garlic Knots - $" + String.format("%.2f", getPrice());
+    }
 }
