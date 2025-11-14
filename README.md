@@ -87,7 +87,7 @@ Example console output:![demo](https://github.com/user-attachments/assets/3721a7
 
 ## Team Members
 
-- **Beimnet Kifle**   
+- **Beimnet Kifle**  Developer and designer of the full PIZZA-licious application 
 
 ---
 
