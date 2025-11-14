@@ -10,8 +10,7 @@ The purpose of this project is to apply **Object-Oriented Programming (OOP)** co
 It was developed as part of the **Year Up Java Focus Academy** to help students gain hands-on experience building real-world Java applications.
 
 ![Class Diagram]
-
-<img width="1920" height="1128" alt="Screenshot 2025-11-14 001341" src="https://github.com/user-attachments/assets/31d2153d-eaa3-4778-9e2d-d81c06e9d09d" />
+<img width="456" height="471" alt="Screenshot 2025-11-14 094604" src="https://github.com/user-attachments/assets/74cb411c-aad8-41be-bf84-ce5f4fea09c1" />
 
 
 ## User Stories
