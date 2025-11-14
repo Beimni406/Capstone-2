@@ -9,9 +9,9 @@ After the order is completed, the system automatically calculates the total and 
 The purpose of this project is to apply **Object-Oriented Programming (OOP)** concepts such as classes, inheritance, encapsulation, and abstraction.  
 It was developed as part of the **Year Up Java Focus Academy** to help students gain hands-on experience building real-world Java applications.  
 
-![Class Diagram](images/pizza_class_diagram.png)
+![Class Diagram]
 
----
+<img width="1920" height="1128" alt="Screenshot 2025-11-14 001341" src="https://github.com/user-attachments/assets/ba61533d-d6ef-41bc-9ded-8efa79263ea3" />
 
 ## User Stories
 
