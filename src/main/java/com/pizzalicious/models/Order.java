@@ -1,82 +1,77 @@
 package com.pizzalicious.models;
 
 import java.util.ArrayList;
+import java.util.List;
 
-// Represents a customer's order containing pizzas, drinks, and garlic knots
 public class Order {
-    private ArrayList<Pizza> pizzas;
-    private ArrayList<Drink> drinks;
-    private ArrayList<GarlicKnot> garlicKnots;
+    private List<Pizza> pizzas;
+    private List<Drink> drinks;
+    private List<GarlicKnot> garlicKnots;
 
     public Order() {
-        pizzas = new ArrayList<>();
-        drinks = new ArrayList<>();
-        garlicKnots = new ArrayList<>();
+        this.pizzas = new ArrayList<>();
+        this.drinks = new ArrayList<>();
+        this.garlicKnots = new ArrayList<>();
     }
 
     public void addPizza(Pizza pizza) {
-        pizzas.add(pizza);
+        if (pizza != null) {
+            pizzas.add(pizza);
+        }
     }
 
     public void addDrink(Drink drink) {
-        drinks.add(drink);
+        if (drink != null) {
+            drinks.add(drink);
+        }
     }
 
-    public void addGarlicKnot(GarlicKnot knot) {
-        garlicKnots.add(knot);
+    public void addGarlicKnot(GarlicKnot garlicKnot) {
+        if (garlicKnot != null) {
+            garlicKnots.add(garlicKnot);
+        }
     }
 
     public double calculateTotal() {
-        double total = 0.0;
-
+        double total = 0;
         for (Pizza pizza : pizzas) {
             total += pizza.calculatePrice();
         }
-
         for (Drink drink : drinks) {
             total += drink.getPrice();
         }
-
         for (GarlicKnot knot : garlicKnots) {
             total += knot.getPrice();
         }
-
         return total;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\n----- Order Details -----\n");
 
-        if (pizzas.isEmpty() && drinks.isEmpty() && garlicKnots.isEmpty()) {
-            sb.append("No items in the order.\n");
-        } else {
-            if (!pizzas.isEmpty()) {
-                sb.append("\nPizzas:\n");
-                for (Pizza p : pizzas) {
-                    sb.append(" - ").append(p.toString()).append("\n");
-                }
-            }
-
-            if (!drinks.isEmpty()) {
-                sb.append("\nDrinks:\n");
-                for (Drink d : drinks) {
-                    sb.append(" - ").append(d.toString()).append("\n");
-                }
-            }
-
-            if (!garlicKnots.isEmpty()) {
-                sb.append("\nGarlic Knots:\n");
-                for (GarlicKnot g : garlicKnots) {
-                    sb.append(" - ").append(g.toString()).append("\n");
-                }
+        if (!pizzas.isEmpty()) {
+            sb.append("Pizzas:\n");
+            for (Pizza pizza : pizzas) {
+                sb.append("  - ").append(pizza.toString()).append("\n");
             }
         }
 
-        sb.append("\nTotal: $").append(String.format("%.2f", calculateTotal())).append("\n");
-        sb.append("--------------------------\n");
+        if (!drinks.isEmpty()) {
+            sb.append("Drinks:\n");
+            for (Drink drink : drinks) {
+                sb.append("  - ").append(drink.toString()).append("\n");
+            }
+        }
 
+        if (!garlicKnots.isEmpty()) {
+            sb.append("Garlic Knots:\n");
+            for (GarlicKnot knot : garlicKnots) {
+                sb.append("  - ").append(knot.toString()).append("\n");
+            }
+        }
+
+        sb.append(String.format("TOTAL: $%.2f", calculateTotal()));
         return sb.toString();
     }
 }

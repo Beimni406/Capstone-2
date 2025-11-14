@@ -1,53 +1,43 @@
 package com.pizzalicious.models;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public abstract class Pizza {
-    // --- Commit #1 ---
-    protected int size;            // 8, 12, or 16 inches
-    protected String crust;        // thin, regular, thick, cauliflower
-    protected boolean stuffedCrust;
-    protected ArrayList<String> toppings = new ArrayList<>();
+public class Pizza {
+    private int size;
+    private String crust;
+    private boolean stuffedCrust;
+    private List<Topping> toppings;
 
-    // --- Commit #2 ---
-    public Pizza(int size, String crust, boolean stuffedCrust) {
+    public Pizza(int size, String crust, boolean stuffedCrust, List<Topping> toppings) {
         this.size = size;
         this.crust = crust;
         this.stuffedCrust = stuffedCrust;
+        this.toppings = toppings;
     }
 
-    public int getSize() {
-        return size;
-    }
-
-    public String getCrust() {
-        return crust;
-    }
-
-    public boolean isStuffedCrust() {
-        return stuffedCrust;
-    }
-
-    // --- Commit #3 ---
     public double calculatePrice() {
+        // Base price based on size (from PDF table)
         double basePrice = switch (size) {
-            case 8 -> 8.50;
-            case 12 -> 12.00;
-            case 16 -> 16.50;
-            default -> 0;
+            case 8 -> 8.50;   // Personal
+            case 12 -> 12.00; // Medium
+            case 16 -> 16.50; // Large
+            default -> 12.00;
         };
 
-        // Add $2 if stuffed crust
-        if (stuffedCrust) basePrice += 2.00;
+        // Stuffed crust premium
+        if (stuffedCrust) basePrice += 3.00;
+
+        // Toppings (meat and cheese have prices, regular toppings are included)
+        for (Topping topping : toppings) {
+            basePrice += topping.getPrice();
+        }
+
         return basePrice;
     }
 
-    // --- Commit #4 ---
     @Override
     public String toString() {
-        return size + " inch " + crust + " crust pizza"
-                + (stuffedCrust ? " (stuffed crust)" : "")
-                + " with toppings: " + toppings
-                + "\nPrice: $" + String.format("%.2f", calculatePrice());
+        return String.format("%d inch %s crust%s with %d toppings - $%.2f",
+                size, crust, stuffedCrust ? " (stuffed)" : "", toppings.size(), calculatePrice());
     }
 }
